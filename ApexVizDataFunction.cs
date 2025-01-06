@@ -4,11 +4,11 @@ using Microsoft.Azure.Functions.Worker.Http;
 
 namespace ApexVizFunctions;
 
-public class GraphQLFunction
+public class ApexVizDataFunction
 {
     private readonly IGraphQLRequestExecutor _executor;
 
-    public GraphQLFunction(IGraphQLRequestExecutor executor)
+    public ApexVizDataFunction(IGraphQLRequestExecutor executor)
     {
         _executor = executor;
     }
