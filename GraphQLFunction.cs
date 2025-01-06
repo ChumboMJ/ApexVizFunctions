@@ -13,9 +13,9 @@ public class GraphQLFunction
         _executor = executor;
     }
 
-    [Function("GraphQLHttpFunction")]
+    [Function("ApexVizDataHttpFunction")]
     public Task<HttpResponseData> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "graphql/{**slug}")]
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "apex/graphql/{**slug}")]
         HttpRequestData request)
         => _executor.ExecuteAsync(request);
 }
