@@ -1,5 +1,6 @@
 ﻿using HotChocolate.Types.Relay;
 using HotChocolate;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace ApexVizFunctions.Models
 {
@@ -8,6 +9,7 @@ namespace ApexVizFunctions.Models
         [GraphQLDescription("Result Id")]
         [ID]
         public Guid ResultId { get; set; } = resultId;
+        public required string ResultType { get; set; }
         public int PaxPosition { get; set; }
         public int ClassPosition { get; set; }
         public required string Class { get; set; }
