@@ -11,7 +11,7 @@ namespace ApexVizFunctions
             _container = container;
         }
 
-        public async Task<RaceResult> AddRaceResult(RaceResult raceResult)
+        public async Task<RaceResult> AddRaceResultAsync(RaceResult raceResult)
         {
             //TODO: Ensure that the PartitionKey is correctly set
             var response = await _container.CreateItemAsync(raceResult, new PartitionKey(raceResult.Class));
