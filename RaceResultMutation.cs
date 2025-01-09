@@ -2,11 +2,11 @@
 
 namespace ApexVizFunctions
 {
-    public class Mutation
+    public class RaceResultMutation
     {
         private readonly Container _container;
 
-        public Mutation(Container container)
+        public RaceResultMutation(Container container)
         {
             _container = container;
         }
