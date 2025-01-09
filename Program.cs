@@ -13,7 +13,8 @@ var host = new HostBuilder()
         });
     })
     .AddGraphQLFunction(b => b
-        .AddQueryType<Query>())
+        .AddQueryType<Query>()
+        .AddMutationType<Mutation>())
     .Build();
 
 host.Run();
