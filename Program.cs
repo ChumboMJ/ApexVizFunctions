@@ -15,13 +15,17 @@ var host = new HostBuilder()
             config.AddAzureKeyVault(keyVaultUri, new DefaultAzureCredential());
         }
     })
-    .ConfigureServices(services =>
+    .ConfigureServices((context, services) =>
     {
+        var configuration = context.Configuration;
+        var cosmosDbConnectionString = configuration["ApexVizFunctions:CosmosDb:ConnectionString"];
+        var databaseId = configuration["ApexVizFunctions:CosmosDb:DatabaseName"];
+
         // Add Cosmos DB client
         services.AddSingleton(s =>
         {
-            var cosmosClient = new CosmosClient("your-cosmos-db-connection-string");
-            return cosmosClient.GetContainer("database-id", "container-id");
+            var cosmosClient = new CosmosClient(cosmosDbConnectionString);
+            return cosmosClient.GetContainer(databaseId, containerId: "RaceResults");
         });
     })
     .AddGraphQLFunction(b => b
