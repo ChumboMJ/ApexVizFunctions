@@ -1,13 +1,17 @@
 ﻿using HotChocolate.Types.Relay;
 using HotChocolate;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Newtonsoft.Json;
 
 namespace ApexVizFunctions.Models
 {
     public class RaceResult(Guid resultId)
     {
+        //TODO: JsonProperty("id") was added to get past an error on insert indicating that id was
+        //      a required field, make sure this does not break the fetch
         [GraphQLDescription("Result Id")]
         [ID]
+        [JsonProperty("id")]
         public Guid ResultId { get; set; } = resultId;
         public required string ResultType { get; set; }
         public int PaxPosition { get; set; }
